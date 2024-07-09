@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid; */
+}
+
+body {
+    font-family: "Lexend Deca", sans-serif;
+    position: relative;
+    height: 100vh;
+    background: #ECE9E6;
+    background: linear-gradient(to right,
+            #ECE9E6, #FFFFFF);
+}
+
+.information {
+    display: none;
+    width: 60%;
+    min-height: 75vh;
+    max-height: 100%;
+    background-color: #001D3D;
+    margin: 1em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 50px;
+}
+
+.title {
+    margin: 1.2em auto;
+    font-size: 3em;
+    font-weight: 400;
+    color: #DAD7CD;
+}
+
+#name,
+#roll-no {
+    margin-top: 1.2em;
+    padding: 0.25rem;
+    font-size: 1.2em;
+    color: #DAD7CD;
+}
+
+#name-field,
+#roll-no-field {
+    color: #DAD7CD;
+    padding: 0.5em 1rem;
+    font-size: 1.3em;
+    width: 12em;
+    border-radius: 50px;
+    border: none;
+    background-color: transparent;
+    border: 2px solid;
+    outline: none;
+}
+
+.test-category {
+    margin: 2em auto;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 50px;
+    background-color: #DAD7CD;
+    box-sizing: border-box;
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: 0.25rem;
+    width: 16em;
+    font-size: 1em;
+}
+
+.test-category .category {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.test-category .category input {
+    display: none;
+}
+
+.test-category .category .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    border: none;
+    padding: .5rem 0;
+    color: rgba(51, 65, 85, 1);
+    transition: all .15s ease-in-out;
+}
+
+.test-category .category input:checked+.name {
+    background-color: #252422;
+    color: #DAD7CD;
+    font-weight: 600;
+}
+
+#start-btn {
+    margin: 1.3em 0;
+    padding: 15px 35px;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    color: #0FA3B1;
+    z-index: 1;
+    background: #DAD7CD;
+    position: relative;
+    font-weight: 600;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms;
+    overflow: hidden;
+}
+
+#start-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #0FA3B1;
+    z-index: -1;
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms
+}
+
+#start-btn:hover {
+    color: #DAD7CD;
+}
+
+#start-btn:hover::before {
+    width: 100%;
+}
