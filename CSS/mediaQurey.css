@@ -11,29 +11,29 @@
     }
 
     .title {
-        font-size: 2em;
+        font-size: 2.5em;
     }
 
     #name,
     #roll-no {
-        font-size: 1em;
+        font-size: 1.2em;
     }
 
     #name-field,
     #roll-no-field {
-        width: 13em;
+        width: 65%;
         font-size: 1em;
         padding: 0.4em 0.8rem;
     }
 
     .test-category {
-        width: 14em;
+        width: 65%;
         padding: 0.2rem;
     }
 
     #start-btn {
         padding: 10px 25px;
-        font-size: 1em;
+        font-size: 1.1em;
     }
 }
 
@@ -42,70 +42,41 @@
     .information {
         width: 80%;
         min-height: 70vh;
-        margin: 1em;
         border-radius: 40px;
     }
 
     .title {
-        font-size: 2.5em;
+        font-size: 2.7em;
+        margin: 1em auto;
     }
 
     #name,
     #roll-no {
-        font-size: 1.1em;
+        font-size: 1.3em;
+        margin-top: 1.1em;
+
     }
 
     #name-field,
     #roll-no-field {
-        width: 13em;
+        width: 50%;
         font-size: 1.1em;
         padding: 0.45em 0.9rem;
     }
 
     .test-category {
-        width: 15em;
-        padding: 0.2rem;
+        width: 60%;
+        padding: 0.4rem;
+    }
+
+    .test-category .category .name{
+        padding: .3rem .5rem;
+        margin: .15rem; 
     }
 
     #start-btn {
         padding: 12px 30px;
         font-size: 1.1em;
-    }
-}
-
-/* Small laptops */
-@media only screen and (min-width: 901px) and (max-width: 1200px) {
-    .information {
-        width: 70%;
-        min-height: 75vh;
-        margin: 1em;
-        border-radius: 45px;
-    }
-
-    .title {
-        font-size: 2.8em;
-    }
-
-    #name,
-    #roll-no {
-        font-size: 1.15em;
-    }
-
-    #name-field,
-    #roll-no-field {
-        width: 11.5em;
-        font-size: 1.2em;
-        padding: 0.5em 1rem;
-    }
-
-    .test-category {
-        width: 15em;
-        padding: 0.2rem;
-    }
-
-    #start-btn {
-        padding: 13px 32px;
-        font-size: 1.15em;
     }
 }
 
