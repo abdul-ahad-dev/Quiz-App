@@ -8,29 +8,34 @@ body {
     font-family: "Lexend Deca", sans-serif;
     position: relative;
     height: 100vh;
-    background: #ECE9E6;
+    /* background: #ECE9E6;
     background: linear-gradient(to right,
-            #ECE9E6, #FFFFFF);
+            #ECE9E6, #FFFFFF); */
+    background-color: #1f1f1f;
 }
 
+
+
+/* <-- User Information Container --> */
+
 .information {
-    display: none;
+    /* display: none; */
     width: 60%;
-    min-height: 75vh;
     max-height: max-content;
-    background-color: #001D3D;
     background-color: #1f1f1f;
-    margin: 1em;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    border-radius: 30px;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;}
+    border-radius: 25px;
+    padding: 2em;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, 
+                rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
 
 .title {
-    margin: 1.2em auto;
+    margin: .5em auto 1em;
     font-size: 3em;
     font-weight: 400;
     color: #DAD7CD;
@@ -95,7 +100,7 @@ body {
     margin: .2rem;
     color: rgba(51, 65, 85, 1);
     transition: all .15s ease-in-out;
-    background-color: inherit;  /* Ensures the background color is inherited */
+    background-color: inherit;  
 }
 
 .test-category .category input:checked+.name {
@@ -144,23 +149,30 @@ body {
     width: 100%;
 }
 
+
+
+/* <-- Quiz App Container --> */
+
 .question-container {
+    display: none;
     width: 65%;
-    min-height: 70vh;
     max-height: max-content;
-    background-color: #003049;
+    background-color: #c1f1f4;
     color: #FDF0D5;
+    border-radius: 25px;
+    padding: 2em;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     position: relative;
-    border-radius: 25px;
-    padding: 2em;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, 
+                rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .timer-box {
     display: flex;
+    color: #1f1f1f;
     position: absolute;
     top: 1.5em;
     right: 1.5em;
@@ -168,59 +180,86 @@ body {
     padding: .3em .6em;
     border: 2px solid;
     border-radius: 40px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+}
+
+.quiz-counter {
+    width: 75%;
+    margin: 3em auto;
+    padding: .3em .4em;
+    background-color: #21888e;
+    border-radius: 50px;
+}
+.quiz-counter .inner{
+    width: 50%;
+    background-color: #1f1f1f;
+    padding: .3em .3em;
+    border-radius: 50px;
 }
 
 .quiz-questions {
     width: 75%;
-    margin: 5em auto 2em;
+    margin: 2em auto;
 }
 
-.quiz-questions .question{
-    max-width: 60%; 
-    min-width: 15em;
+.question-box{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%; 
     overflow-wrap: break-word;
     text-align: center;
-    background-color: #FDF0D5;
-    color: #1f1f1f;
-    margin: 1em auto 2em;
+    background-color: #21888e;
+    color: #fff6ec;
+    margin: 1em auto 1.5em;
     font-size: 1.5em;
     padding: .7em 1.3em;
-    border-radius: 30px;
+    border-radius: 10px;
     letter-spacing: 1.3px;
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, 
+                rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
-.quiz-questions .options {
+#question-no{
+    font-size: .7em;
+    text-align: start;
+}
+
+#question {
+    font-size: 1.4em;
+}
+
+.options {
     border: 1px solid;
-    min-width: 10em;
-    width: max-content;
+    width: 100%;
+}
+
+.option {
+    border: 1px solid #21888e;
+    max-width: 40%;
     overflow-wrap: break-word;
     background-color: #FDF0D5;
     color: #1f1f1f;
-    margin: .7em 0;
-    padding: .7em;
+    margin: .5em 2em;
+    padding: .7em 2em .7em .5em;
     font-size: 1.2em;
     border-radius: 30px;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
-.quiz-questions .options .circle {
-    width: 1em; 
-    margin-right: .3em;
-    padding: .3em .5em;
+
+.option .circle {
+    margin-right: .5em;
+    padding: .3em .6em;
     border-radius: 50px;
-    background-color: #FFB703;
+    background-color: #FFBA08;
 }
 
-.quiz-questions .options:hover .circle {
-    background-color: #D62828;
+.option:hover .circle {
+    background-color: #D00000;
 }
 
 .btn-container {
     width: max-content;
     margin: 1em auto;
     padding: 0 .7em;
-
 }
 
 .btn-container button {
@@ -228,8 +267,9 @@ body {
     outline: none;
     padding: .6em 1em;
     font-size: 1.4em;
+    letter-spacing: 1.2px;
     border-radius: 50px;
-    background-color: #1f1f1f;
+    background-color: #21888e;
     color: #FDF0D5;
 }
 
