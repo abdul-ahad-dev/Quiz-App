@@ -8,10 +8,15 @@ body {
     font-family: "Lexend Deca", sans-serif;
     position: relative;
     height: 100vh;
+    /* user-select: none; */
     /* background: #ECE9E6;
     background: linear-gradient(to right,
             #ECE9E6, #FFFFFF); */
-    background-color: #1f1f1f;
+            background: #1f1f1f;
+  background:  radial-gradient(
+    to right,
+    #1f1f1f,#000000
+  );
 }
 
 
@@ -19,10 +24,10 @@ body {
 /* <-- User Information Container --> */
 
 .information {
-    /* display: none; */
     width: 60%;
     max-height: max-content;
-    background-color: #1f1f1f;
+    background-color: #c1f1f4;
+    color: #FDF0D5;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -37,31 +42,37 @@ body {
 .title {
     margin: .5em auto 1em;
     font-size: 3em;
-    font-weight: 400;
-    color: #DAD7CD;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: #21888e;
+    text-shadow: 2px 2px 9px rgba(0,0,0,0.29);
 }
 
 #name,
 #roll-no {
-    margin-top: 1.5em;
+    margin: 1.5em 0 .2em;
     padding: 0.25rem;
-    font-size: 1.2em;
-    color: #DAD7CD;
+    font-size: 1.3em;
+    color: #1f1f1f;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    text-shadow: 3px 3px 12px rgba(255,255,255,0.6);
 }
 
 #name-field,
 #roll-no-field {
-    color: #DAD7CD;
+    color: #1f1f1f;
+    background-color: #FDF0D5;
     padding: 0.8em 1.5rem;
     font-size: 1.1em;
-    width: 12em;
+    letter-spacing: 1.3px;
     width: 45%;
     border-radius: 50px;
     border: none;
-    background-color: transparent;
-    border: 2px solid;
     outline: none;
     letter-spacing: 1.3px;
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
 }
 
 
@@ -71,7 +82,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     border-radius: 20px;
-    background-color: #DAD7CD;
+    background-color: #21888e;
     box-sizing: border-box;
     box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
     padding: .7rem;
@@ -98,9 +109,8 @@ body {
     border: none;
     padding: .3rem .5rem;
     margin: .2rem;
-    color: rgba(51, 65, 85, 1);
+    color: #FDF0D5;
     transition: all .15s ease-in-out;
-    background-color: inherit;  
 }
 
 .test-category .category input:checked+.name {
@@ -115,9 +125,9 @@ body {
     border-radius: 50px;
     outline: none;
     border: none;
-    color: #0FA3B1;
+    color: #21888e;
+    background-color: #DAD7CD;
     z-index: 1;
-    background: #DAD7CD;
     position: relative;
     font-weight: 600;
     font-size: 1.2em;
@@ -135,7 +145,7 @@ body {
     height: 100%;
     width: 0;
     border-radius: 15px;
-    background-color: #0FA3B1;
+    background-color: #21888e;
     z-index: -1;
     box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     transition: all 250ms
@@ -196,6 +206,18 @@ body {
     border-radius: 50px;
 }
 
+.quiz-test-category {
+    display: flex;
+    color: #1f1f1f;
+    position: absolute;
+    top: 1.5em;
+    left: 1.5em;
+    font-size: 1.1em;
+    padding: .3em .6em;
+    border: 2px solid;
+    border-radius: 40px;
+}
+
 .quiz-questions {
     width: 75%;
     margin: 2em auto;
@@ -228,13 +250,13 @@ body {
 }
 
 .options {
-    border: 1px solid;
     width: 100%;
 }
 
 .option {
     border: 1px solid #21888e;
-    max-width: 40%;
+    min-width: 40%;
+    max-width: max-content;
     overflow-wrap: break-word;
     background-color: #FDF0D5;
     color: #1f1f1f;

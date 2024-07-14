@@ -18,10 +18,12 @@
 
 <body>
 
-     <!-- <-- User Information Container -->  
+    <!-- <-- User Information Container -->
 
     <div class="information" id="information">
+
         <h1 class="title">Quiz App</h1>
+
 
         <form class="form">
 
@@ -35,11 +37,14 @@
                 <input id="roll-no-field" type="text">
             </div>
 
+
             <div class="test-category">
+
                 <label class="category">
                     <input type="radio" name="category" checked="">
                     <span class="name">HTML</span>
                 </label>
+
                 <label class="category">
                     <input type="radio" name="category">
                     <span class="name">CSS</span>
@@ -49,19 +54,23 @@
                     <input type="radio" name="category">
                     <span class="name">BootStrap</span>
                 </label>
+
                 <label class="category">
                     <input type="radio" name="category">
                     <span class="name">JS Level 1</span>
                 </label>
+
                 <label class="category">
                     <input type="radio" name="category">
                     <span class="name">JS Level 2</span>
                 </label>
+
                 <label class="category">
                     <input type="radio" name="category">
                     <span class="name">JS Level 3</span>
                 </label>
             </div>
+
 
             <div class="btn-container">
                 <button id="start-btn">Start</button>
@@ -72,16 +81,18 @@
 
 
 
-    
 
-    <!--  <-- Quiz App Container --> 
 
-    <div class="question-container">
+    <!--  <-- Quiz App Container -->
+
+    <div class="question-container" id="question-container">
         <div class="timer-box">
             <div class="minutes-box">10</div>
             <span> : </span>
             <div class="seconds-box">00</div>
         </div>
+
+        <div class="quiz-test-category" id="quiz-test-category">JS Level 1</div>
 
         <div class="quiz-counter">
             <div class="inner"></div>
@@ -95,17 +106,21 @@
             </div>
 
             <div class="options">
-                <div class="option" id="option-a">
-                    <span class="circle">A</span>HTML
+                <div class="option">
+                    <span class="circle">A</span>
+                    <span id="option-a">HTML</span>
                 </div>
-                <div class="option" id="option-b">
-                    <span class="circle">B</span>HTML
+                <div class="option">
+                    <span class="circle">B</span>
+                    <span id="option-b">HTML</span>
                 </div>
-                <div class="option" id="option-c">
-                    <span class="circle">C</span>HTML
+                <div class="option">
+                    <span class="circle">C</span>
+                    <span id="option-c">HTML</span>
                 </div>
-                <div class="option" id="option-d">
-                    <span class="circle">D</span>HTML
+                <div class="option">
+                    <span class="circle">D</span>
+                    <span id="option-d">HTML</span>
                 </div>
             </div>
 
@@ -123,7 +138,7 @@
 
 
 
-    <footer></footer>
+    <script src="./JS/question.js"></script>
     <script src="/JS/app.js"></script>
 </body>
 

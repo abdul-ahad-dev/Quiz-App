@@ -222,7 +222,7 @@ const bootstrapQuestions = [
   },
 ];
 
-const jsQuestions = [
+const jsLevel1Questions = [
   {
     question:
       "What is the correct syntax for referring to an external script called 'xxx.js'?",

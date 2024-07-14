@@ -5,9 +5,9 @@
 @media only screen and (max-width: 600px) {
     /* <-- User Information Container --> */
     .information {
-        width: 90%;
-        min-height: 70vh;
-        margin: 0.5em;
+        width: 80%;
+        padding: 1.5em;
+        margin: 1em 0;
         border-radius: 30px;
     }
 
@@ -22,13 +22,13 @@
 
     #name-field,
     #roll-no-field {
-        width: 65%;
+        width: 90%;
         font-size: 1em;
         padding: 0.4em 0.8rem;
     }
 
     .test-category {
-        width: 65%;
+        width: 90%;
         padding: 0.2rem;
     }
 
@@ -41,12 +41,18 @@
     /* <-- Quiz App Container --> */
     .question-container {
         width: 80%;
+        margin: 1em 0;
         padding: 1.5em;
     }
 
     .timer-box {
         top: 1em;
         right: 1em;
+        font-size: 1em;
+    }
+    .quiz-test-category {
+        top: 1em;
+        left: 1em;
         font-size: 1em;
     }
 
@@ -105,6 +111,7 @@
     .information {
         width: 80%;
         min-height: 70vh;
+        margin: 1em 0;
         border-radius: 40px;
     }
 
@@ -142,19 +149,23 @@
     }
 
     /* <-- Quiz App Container --> */
-    .quiz-counter {
-        width: 95%;
-        margin: 3em auto 2em;
+    .question-container {
+        width: 90%;
+        margin: 2em 0;
         padding: .25em .35em;
     }
 
+    .quiz-counter {
+        width: 80%;
+        margin-top: 5em;
+    }
     .quiz-counter .inner{
         width: 50%;
         padding: .25em .3em;
     }
 
     .quiz-questions {
-        width: 100%;
+        width: 95%;
     }
 
     #question-no{
