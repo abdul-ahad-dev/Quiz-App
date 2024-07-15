@@ -166,7 +166,9 @@ body {
 .question-container {
     display: none;
     width: 65%;
+    height: 75vh;
     max-height: max-content;
+    user-select: none;
     background-color: #c1f1f4;
     color: #FDF0D5;
     border-radius: 25px;
@@ -198,6 +200,7 @@ body {
     padding: .3em .4em;
     background-color: #21888e;
     border-radius: 50px;
+    overflow: hidden;
 }
 .quiz-counter .inner{
     width: 50%;

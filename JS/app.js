@@ -6,6 +6,7 @@ const form = document.querySelector('.form');
 const startBtn = document.querySelector('#start-btn');
 const quizAppBox = document.getElementById('question-container');
 
+
 const quizCategory = {
     HTML: htmlQuestions,
     CSS: cssQuestions,
@@ -14,13 +15,35 @@ const quizCategory = {
     "JS Level 2": jsLevel2Questions,
     "JS Level 3": jsLevel3Questions
 };
-const questions = []
+
+const questions = [];
+let questionAnswer = [];
 
 let questionBox = document.getElementById('question');
+
 let optionA = document.getElementById('option-a');
 let optionB = document.getElementById('option-b');
 let optionC = document.getElementById('option-c');
 let optionD = document.getElementById('option-d');
+
+
+let prevBtn = document.getElementById('prev-btn');
+let nextBtn = document.getElementById('next-btn');
+let submitBtn = document.getElementById('submit');
+
+
+let questionNo = 0;
+let widthLength = 10
+
+let counterLine = document.getElementById('counter-line');
+let questionNumberBox = document.getElementById('question-no');
+
+
+let minutes = document.getElementById('minutes');
+let seconds = document.getElementById('seconds');
+
+let sec = 0;
+let mint = 5;
 
 
 startBtn.addEventListener('click', (e) =>
@@ -69,6 +92,10 @@ startBtn.addEventListener('click', (e) =>
                     optionB.textContent = questions[0][0].options[1];
                     optionC.textContent = questions[0][0].options[2];
                     optionD.textContent = questions[0][0].options[3];
+
+                    counterLine.style.width = '10%';
+
+
                 }
             }
         }
@@ -76,31 +103,67 @@ startBtn.addEventListener('click', (e) =>
 });
 
 
-let prevBtn = document.getElementById('prev-btn');
-let nextBtn = document.getElementById('next-btn');
-let submitBtn = document.getElementById('submit');
-let questionNo = 0;
 
-
-nextBtn.addEventListener('click', () => {
+nextBtn.addEventListener('click', () =>
+{
     if (questionNo < questions[0].length - 1) {
-      questionNo++;
-      updateQuestion();
+        widthLength += 10
+        counterLine.style.width = `${widthLength}%`
+        questionNo++;
+        questionNumberBox.textContent = `${questionNo + 1}/10`
+        updateQuestion();
     }
-  })
-  
-  prevBtn.addEventListener('click', () => {
+})
+
+submitBtn.addEventListener('click', () =>
+{
+    if (questionNo === questions[0].length - 1) {
+        quizAppBox.style.display = 'none'
+    } else {
+        widthLength += 10
+        counterLine.style.width = `${widthLength}%`
+        questionNo++;
+        questionNumberBox.textContent = `${questionNo + 1}/10`
+        updateQuestion();
+    }
+})
+
+prevBtn.addEventListener('click', () =>
+{
     if (questionNo > 0) {
-      questionNo--;
-      updateQuestion();
+        widthLength -= 10
+        counterLine.style.width = `${widthLength}%`
+        questionNo--;
+        questionNumberBox.textContent = `${questionNo + 1}/10`
+        updateQuestion();
     }
-  })
+})
 
 
-function updateQuestion() {
+function updateQuestion()
+{
     questionBox.textContent = questions[0][questionNo].question;
     optionA.textContent = questions[0][questionNo].options[0];
     optionB.textContent = questions[0][questionNo].options[1];
     optionC.textContent = questions[0][questionNo].options[2];
     optionD.textContent = questions[0][questionNo].options[3];
-  }
+}
+
+
+
+
+let timeUpdateInterval = setInterval(() =>
+{
+    sec++;
+    if (sec > 59) {
+        sec = 0;
+        mint--;
+    }
+
+    minutes.textContent = mint;
+    seconds.textContent = sec
+
+    if (mint === 0 && sec === 0) {
+        clearInterval(timeUpdateInterval);
+    }
+}, 100);
