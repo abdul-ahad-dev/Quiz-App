@@ -102,6 +102,26 @@
         padding: .7em .8em;
         font-size: 1.2em;
     }
+
+
+    /* <-- Result Container Styles --> */
+
+    .result-container {
+        width: 85%;
+    }
+
+    .result-container h2 {
+        font-size: 2.5em;
+        margin: 1.2em auto .8em;
+    }
+    
+    .result-container p {
+        font-size: 1.1em;    
+    }
+
+    #retry-btn {
+        margin: 2.2em 0;
+    }
 }
 
 /* Tablets */
@@ -184,5 +204,10 @@
         padding: .5em .9em;
         font-size: 1.2em;
         border-radius: 50px;
+    }
+
+    /* <-- Result Container Styles --> */
+    .result-container {
+        width: 80%;
     }
 }

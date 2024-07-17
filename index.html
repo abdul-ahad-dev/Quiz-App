@@ -87,7 +87,7 @@
 
     <div class="question-container" id="question-container">
         <div class="timer-box">
-            <div class="minutes-box" id="minutes">10</div>
+            <div class="minutes-box" id="minutes">00</div>
             <span> : </span>
             <div class="seconds-box" id="seconds">00</div>
         </div>
@@ -102,25 +102,25 @@
 
             <div class="question-box">
                 <div id="question-no">1/10</div>
-                <div id="question">What is HTML?</div>
+                <div id="question"></div>
             </div>
 
             <div class="options">
                 <div class="option">
                     <span class="circle">A</span>
-                    <span id="option-a">HTML</span>
+                    <span id="option-a"></span>
                 </div>
                 <div class="option">
                     <span class="circle">B</span>
-                    <span id="option-b">HTML</span>
+                    <span id="option-b"></span>
                 </div>
                 <div class="option">
                     <span class="circle">C</span>
-                    <span id="option-c">HTML</span>
+                    <span id="option-c"></span>
                 </div>
                 <div class="option">
                     <span class="circle">D</span>
-                    <span id="option-d">HTML</span>
+                    <span id="option-d"></span>
                 </div>
             </div>
 
@@ -135,7 +135,14 @@
     </div>
 
 
-
+    <!-- Result Display -->
+    <div id="result-container" class="result-container">
+        <h2>Quiz Result</h2>
+        <p id="result-username">Username: </p>
+        <p id="result-category">Category: </p>
+        <p id="result-score">Score: </p>
+        <button id="retry-btn">Retry</button>
+    </div>
 
 
     <script src="./JS/question.js"></script>

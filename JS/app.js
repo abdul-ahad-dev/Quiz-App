@@ -17,7 +17,7 @@ const quizCategory = {
 };
 
 const questions = [];
-let questionAnswer = [];
+let selectedAnswers = [];
 
 let questionBox = document.getElementById('question');
 
@@ -42,8 +42,128 @@ let questionNumberBox = document.getElementById('question-no');
 let minutes = document.getElementById('minutes');
 let seconds = document.getElementById('seconds');
 
-let sec = 0;
-let mint = 5;
+let sec = 59;
+let mint = 4;
+
+
+
+
+
+nextBtn.addEventListener('click', () =>
+    {
+        if (questionNo < questions[0].length - 1) {
+            widthLength += 10
+            counterLine.style.width = `${widthLength}%`
+            questionNo++;
+            questionNumberBox.textContent = `${questionNo + 1}/10`
+            updateQuestion();
+        }
+    })
+    
+    
+    submitBtn.addEventListener('click', () =>
+    {
+        if (questionNo === questions[0].length - 1) {
+            quizAppBox.style.display = 'none'
+            checkAnswers();
+        } else {
+            widthLength += 10
+            counterLine.style.width = `${widthLength}%`
+            questionNo++;
+            questionNumberBox.textContent = `${questionNo + 1}/10`
+            updateQuestion();
+        }
+    })
+    
+    
+    prevBtn.addEventListener('click', () =>
+    {
+        if (questionNo > 0) {
+            widthLength -= 10
+            counterLine.style.width = `${widthLength}%`
+            questionNo--;
+            questionNumberBox.textContent = `${questionNo + 1}/10`
+            updateQuestion();
+        }
+    })
+    
+    
+    function updateQuestion()
+    {
+        questionBox.textContent = questions[0][questionNo].question;
+        optionA.textContent = questions[0][questionNo].options[0];
+        optionB.textContent = questions[0][questionNo].options[1];
+        optionC.textContent = questions[0][questionNo].options[2];
+        optionD.textContent = questions[0][questionNo].options[3];
+    
+        document.querySelectorAll('.option .circle').forEach(circle =>
+        {
+            circle.classList.remove('active');
+        });
+    
+        if (selectedAnswers[questionNo] !== undefined) {
+            document.querySelectorAll('.option .circle')[selectedAnswers[questionNo]].classList.add('active');
+        }
+    }
+    
+    
+    function handleOptionClick(optionElement, optionIndex)
+    {
+        document.querySelectorAll('.option .circle').forEach(circle =>
+        {
+            circle.classList.remove('active');
+        });
+    
+        optionElement.querySelector('.circle').classList.add('active');
+    
+        selectedAnswers[questionNo] = optionIndex;
+    }
+    
+    
+    optionA.parentElement.addEventListener('click', () => handleOptionClick(optionA.parentElement, 0));
+    optionB.parentElement.addEventListener('click', () => handleOptionClick(optionB.parentElement, 1));
+    optionC.parentElement.addEventListener('click', () => handleOptionClick(optionC.parentElement, 2));
+    optionD.parentElement.addEventListener('click', () => handleOptionClick(optionD.parentElement, 3));
+    
+    
+    function checkAnswers()
+    {
+        let score = 0;
+        questions[0].forEach((question, index) =>
+        {
+            if (question.options[selectedAnswers[index]] === correctAnswers[index]) {
+                score++;
+            }
+        });
+    
+        displayResults(score);
+    
+    }
+    
+    
+    
+    function displayResults(score)
+    {
+        const resultContainer = document.getElementById('result-container');
+        const resultUsername = document.getElementById('result-username');
+        const resultCategory = document.getElementById('result-category');
+        const resultScore = document.getElementById('result-score');
+    
+        const name = localStorage.getItem('name');
+        const category = localStorage.getItem('category');
+    
+        resultUsername.textContent = `Username: ${name}`;
+        resultCategory.textContent = `Category: ${category}`;
+        resultScore.textContent = `Score: ${score} out of ${questions[0].length}`;
+    
+        resultContainer.style.display = 'block';
+    }
+    
+    document.getElementById('retry-btn').addEventListener('click', () =>
+    {
+        location.reload();
+    });
+    
 
 
 startBtn.addEventListener('click', (e) =>
@@ -66,10 +186,6 @@ startBtn.addEventListener('click', (e) =>
     localStorage.setItem('rollNo', rollNo);
     localStorage.setItem('category', category);
 
-    console.log(`Name: ${name}`);
-    console.log(`Roll No: ${rollNo}`);
-    console.log(`Category: ${category}`);
-
     let informContainer = document.getElementById('information');
     let quizTestCategory = document.getElementById('quiz-test-category');
 
@@ -87,6 +203,9 @@ startBtn.addEventListener('click', (e) =>
                     quizTestCategory.textContent = category
                     questions.push(quizCategory[key])
 
+                    correctAnswers = quizCategory[key].map(q => q.answer);
+
+
                     questionBox.textContent = questions[0][0].question;
                     optionA.textContent = questions[0][0].options[0];
                     optionB.textContent = questions[0][0].options[1];
@@ -95,75 +214,27 @@ startBtn.addEventListener('click', (e) =>
 
                     counterLine.style.width = '10%';
 
+                    let timeUpdateInterval = setInterval(() =>
+                    {
+                        sec++;
+                        if (sec > 59) {
+                            sec = 0;
+                            mint--;
+                        }
 
+                        sec = sec < 10 ? '0' + sec : sec;
+
+                        minutes.textContent = '0' + mint;
+                        seconds.textContent = sec
+
+                        if (mint < 0) {
+                            quizAppBox.style.display = 'none'
+                            checkAnswers();
+                            clearInterval(timeUpdateInterval);
+                        }
+                    }, 1000);
                 }
             }
         }
-    }, 1000)
+    }, 100)
 });
-
-
-
-nextBtn.addEventListener('click', () =>
-{
-    if (questionNo < questions[0].length - 1) {
-        widthLength += 10
-        counterLine.style.width = `${widthLength}%`
-        questionNo++;
-        questionNumberBox.textContent = `${questionNo + 1}/10`
-        updateQuestion();
-    }
-})
-
-submitBtn.addEventListener('click', () =>
-{
-    if (questionNo === questions[0].length - 1) {
-        quizAppBox.style.display = 'none'
-    } else {
-        widthLength += 10
-        counterLine.style.width = `${widthLength}%`
-        questionNo++;
-        questionNumberBox.textContent = `${questionNo + 1}/10`
-        updateQuestion();
-    }
-})
-
-prevBtn.addEventListener('click', () =>
-{
-    if (questionNo > 0) {
-        widthLength -= 10
-        counterLine.style.width = `${widthLength}%`
-        questionNo--;
-        questionNumberBox.textContent = `${questionNo + 1}/10`
-        updateQuestion();
-    }
-})
-
-
-function updateQuestion()
-{
-    questionBox.textContent = questions[0][questionNo].question;
-    optionA.textContent = questions[0][questionNo].options[0];
-    optionB.textContent = questions[0][questionNo].options[1];
-    optionC.textContent = questions[0][questionNo].options[2];
-    optionD.textContent = questions[0][questionNo].options[3];
-}
-
-
-
-
-let timeUpdateInterval = setInterval(() =>
-{
-    sec++;
-    if (sec > 59) {
-        sec = 0;
-        mint--;
-    }
-
-    minutes.textContent = mint;
-    seconds.textContent = sec
-
-    if (mint === 0 && sec === 0) {
-        clearInterval(timeUpdateInterval);
-    }
-}, 100);
